@@ -65,5 +65,3 @@ https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operatio
         to allow for repairs or alterations at the prison
 
 ## Python Deck GL
-
-## 
