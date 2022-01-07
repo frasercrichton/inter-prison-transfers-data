@@ -64,4 +64,23 @@ https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operatio
         due to change in security classification
         to allow for repairs or alterations at the prison
 
-## Python Deck GL
+## xx
+
+## Original data format 
+
+From,To,Reason,Transfer Date,Status At Transfer
+
+
+Population Management
+
+From > To
+
+Deleted these:
+
+SHCF,Waikeria,Judicial,,
+MECF,NRCF,In Transit/Multi-Site Move,,
+MECF,SHCF,Judicial,,
+MECF,SHCF,Personal Request,,
+Rimutaka,SHCF,In Transit/Multi-Site Move,,
+
+As no dates were specified
