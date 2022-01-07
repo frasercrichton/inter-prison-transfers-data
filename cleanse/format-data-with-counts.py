@@ -1,12 +1,8 @@
 import pandas as pd
 
+
+
 prison_locations_df = pd.read_json('../data/prison-locations.json')
-
-# Original data format - From,To,Reason,Transfer Date,Status At Transfer
-inter_prison_transfers_df = pd.read_csv('../data/inter-prison-transfers-original.csv')
-
-def format_date(df):
-    return pd.to_datetime(pd.to_datetime(df['Transfer Date']), format='%Y%m%d')
 
 def clean_data(df):
     return  df.drop(columns=['Name', 'Prison', 'Official Name', 'Gender', 'Opened', 'Closed', 'Capacity',
@@ -24,23 +20,49 @@ def add_prison_locations(df, to_from):
 
 prison_locations_df = clean_data(prison_locations_df)
 
-inter_prison_transfers_df['Transfer Date'] = format_date(inter_prison_transfers_df)
+inter_prison_transfers_df = pd.read_csv('../data/inter-prison-transfers-original.csv')
 
-df = add_prison_locations(inter_prison_transfers_df, 'From')
-df = add_prison_locations(df, 'To')
+df = inter_prison_transfers_df.groupby(['From'])\
+    .size() \
+    .reset_index(name='transfer-count') \
+    .sort_values(by=['From'])
 
-df.to_json('../output/inter-prison-transfers-formatted.json', orient="records", date_format='iso')
+df = add_prison_locations(df, 'From')
+
+print(df)
+
+df.to_json('../output/inter-prison-transfers-counts.json', orient="records")
+
+df = inter_prison_transfers_df.groupby(['From', 'Reason'])\
+    .size() \
+    .reset_index(name='count') \
+    .sort_values(by=['From'])
+
+df = df[df['Reason']=='Population Management']
+df = add_prison_locations(df, 'From')
+
+#
+print(df)
+#
+# # prison_transfers_df.groupby('Reason')['Population Management'].transform('pop-count')
+# # print(df)
+# # print(prison_transfers_df['Reason'].value_counts()['Population Management'])
+#
+# #
+# # print(df)
+# #
+# # df = prison_transfers_df.groupby(['From'])\
+# #     .size() \
+# #     .reset_index(name='popmgmt') \
+# #     .sort_values(by=['popmgmt'])
+#
+df.to_json('../output/inter-prison-transfers-population-management-counts.json', orient="records")
 
 
-# 'population-management-transfer.json'
 
-# "From":"SHCF",
-# "To":"Auckland",
-# "Reason":"Placement Management",
-# "Transfer Date":1530489600000,
-# "Status At Transfer":"Sentenced (Low Medium)",
-# "Transfer_From_Coordinates":[175.080961,-37.37369],
-# "Transfer_To_Coordinates":[174.64222,-36.757022]
+#  merge by location and count as you go
+# count 1 = total
+# count 2 = popmanaged
 
 # remove anything that isn't pop manage
 # count pop mgmt for each location?
