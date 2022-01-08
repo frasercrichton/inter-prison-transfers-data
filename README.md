@@ -1,6 +1,9 @@
-# Inter Prison Transfers in Aotearoa/New Zealand
+# InterPrison Transfers in Aotearoa New Zealand
 
-## FOIA - Inter-Prison Transfers Across Time and Place
+Data and scripts to format and interrogate data provided by Corrections NZ on inter-prison transfers.
+
+
+## Freedom of Information Request (FOI) - Inter-Prison Transfers Across Time and Place
 
 https://fyi.org.nz/request/16105-inter-prison-transfers-across-time-and-place#outgoing-27826
 
@@ -34,10 +37,13 @@ Ngā mihi,
 Fraser Crichton
 ```
 
+## Data Format 
 
+From
 
-https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operations-Manual/Movement/M.04-External-movement-transportation-of-prisoners/M.04.03-Inter-prison-transfers
+To
 
+### Reasons
 
     Population Pressure - Adviser Prison Population only
         For muster management purpose
@@ -64,24 +70,28 @@ https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operatio
         due to change in security classification
         to allow for repairs or alterations at the prison
 
-## xx
+[https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operations-Manual/Movement/M.04-External-movement-transportation-of-prisoners/M.04.03-Inter-prison-transfers](https://www.corrections.govt.nz/resources/policy_and_legislation/Prison-Operations-Manual/Movement/M.04-External-movement-transportation-of-prisoners/M.04.03-Inter-prison-transfers)
 
-## Original data format 
+### Transfer Date
 
-From,To,Reason,Transfer Date,Status At Transfer
+### Status At Transfer
 
 
-Population Management
+## Errata
 
-From > To
-
-Deleted these:
+The following records were did not include dates.
 
 SHCF,Waikeria,Judicial,,
 MECF,NRCF,In Transit/Multi-Site Move,,
 MECF,SHCF,Judicial,,
 MECF,SHCF,Personal Request,,
 Rimutaka,SHCF,In Transit/Multi-Site Move,,
+
+
+Population Management
+
+From > To
+
 
 As no dates were specified
 
