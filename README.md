@@ -1,9 +1,9 @@
-# InterPrison Transfers in Aotearoa New Zealand
+# Inter-prison Transfers in Aotearoa New Zealand
 
-Data and scripts to format and interrogate data provided by Corrections NZ on inter-prison transfers.
+Data and scripts to format and interrogate data provided by Corrections NZ on Inter-prison transfers.
 
 
-## Freedom of Information Request (FOI) - Inter-Prison Transfers Across Time and Place
+## Freedom of Information Request (FOI) - Inter-prison Transfers Across Time and Place
 
 https://fyi.org.nz/request/16105-inter-prison-transfers-across-time-and-place#outgoing-27826
 
@@ -39,9 +39,13 @@ Fraser Crichton
 
 ## Data Format 
 
-From
+## From
 
-To
+Prison Name as abbreviation.
+
+## To
+
+Prison Name as abbreviation.
 
 ### Reasons
 
